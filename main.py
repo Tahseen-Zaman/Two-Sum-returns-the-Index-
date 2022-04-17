@@ -14,13 +14,16 @@ def twosumBruteforce(num,target):
 
 def twoSum(nums,target):
   valueMap = dict()
+  output = set()
 # say we are finding 5 sum of two and 3 in 0 and  1 index
   for i, num in enumerate(nums):
     #stores the completem for each indexes
     complement = target - num # 2 = 5 - 3
     if complement in valueMap:
-      return [valueMap[complement],i]
+      #return [valueMap[complement],i]
+      output.add((valueMap[complement],i))
     valueMap[num]= i  # Mapping Vaule to index just reverseing assignment of array, here Vaule is the key and index is the Value.
-  return []    
+  return output
   
-print(twoSum([1,2,2,3,4],5))  
+output = twoSum([1,2,2,3,4],5)
+print('\n'.join(map(str,list(output))))
